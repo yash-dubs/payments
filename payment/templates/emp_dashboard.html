@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Paiments</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <a class="navbar-brand" href="#">Paiments</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/request-money">Request Money</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/settings">Settings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mt-5">
+    <h1>Welcome, {{ user_name }}!</h1>
+    <div class="row">
+        <!-- Available Balance -->
+        <div class="col-md-6 mb-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Available Balance</h5>
+                    <p class="card-text" id="balance">$0.00</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Withdrawal Section -->
+        <div class="col-md-6 mb-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Withdrawable Amount</h5>
+                    <p class="card-text" id="withdrawable-amount">$0.00</p>
+                    <p class="card-text">Fee (10%): <span id="fee-amount">$0.00</span></p>
+                    <a href="/request-money" class="btn btn-success">Request Money</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roth IRA Section -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Roth IRA Balance</h5>
+                    <p class="card-text" id="roth-ira-balance">$0.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer mt-auto py-3 bg-success text-white">
+    <div class="container text-center">
+        <span>© 2024 Paiments</span>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+    $(document).ready(function() {
+        // Placeholder for fetching data from the backend
+        // You'll need to replace this with actual AJAX calls
+        const balance = 1000; // Assume $1000 balance
+        const feePercentage = 0.10; // 10% fee
+        
+        $('#balance').text(`$${balance.toFixed(2)}`);
+        $('#withdrawable-amount').text(`$${(balance * (1 - feePercentage)).toFixed(2)}`);
+        $('#fee-amount').
