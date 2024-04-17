@@ -78,10 +78,8 @@ After setting up, navigate to `http://localhost:5000` on your web browser. Regis
 ## Contact
 If you have any questions, concerns, or feedback, please contact:
 
-- Chijioke: [chijioke-01]
+
 - Yash:[yash-dubs] 
-- Lee:[leemabhena]
-- Xiaoyi: [Xiaoyi-Lin]
-- John : [JohnExantus]
+
 
 # payments
